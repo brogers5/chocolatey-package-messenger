@@ -7,7 +7,7 @@
     <packageSourceUrl>https://github.com/brogers5/chocolatey-package-messenger/tree/v153.0.374858836</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Messenger</title>
-    <authors>Facebook, Inc.</authors>
+    <authors>Facebook Inc.</authors>
     <projectUrl>https://www.messenger.com/desktop/</projectUrl>
     <iconUrl>https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@11eade7e5c9cf02a523fc1a90c744a146ba806b7/messenger.png</iconUrl>
     <copyright>© Meta 2022</copyright>
