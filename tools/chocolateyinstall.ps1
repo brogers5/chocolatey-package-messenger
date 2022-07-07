@@ -7,7 +7,7 @@ $packageArgs = @{
   fileType       = 'EXE'
   url64bit       = 'https://www.messenger.com/messenger/desktop/downloadV2/?platform=win'
   softwareName   = 'Messenger'
-  checksum64     = '806c5326bd997c32711e82b8b451ec2ac7b1b9d8d81a8ec34546493b5a26814f'
+  checksum64     = '74f43a0a808a071eab0be190c3b7a56efa703e0c02ffd4c527cb25a4e8194cef'
   checksumType64 = 'sha256'
   silentArgs     = '/S'
   validExitCodes = @(0)
