@@ -8,6 +8,7 @@ To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](
 ## Go big with Messenger
 A simple app that lets you text, video chat, and stay close with people you care about.
 
+![Messenger Screenshot](https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@41f54bf64d8c817bf3663b1c331fe5074df2923f/Screenshot.png)
 
 ### Features
 
