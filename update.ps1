@@ -10,6 +10,7 @@ function global:au_SearchReplace {
     @{
         "$($Latest.PackageName).nuspec" = @{
             "<packageSourceUrl>[^<]*</packageSourceUrl>" = "<packageSourceUrl>https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)</packageSourceUrl>"
+            '(\<copyright\>).*?(\<\/copyright\>)' = "`${1}© Meta $(Get-Date -Format yyyy)`$2"
         }
         "tools\chocolateyinstall.ps1" = @{
             "(^[$]?\s*checksum64\s*=\s*)('.*')" = "`$1'$($Latest.Checksum64)'"
