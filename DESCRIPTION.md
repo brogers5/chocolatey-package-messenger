@@ -24,6 +24,9 @@ Lost for words? Now you can customize your reactions, with way more emojis to ch
 #### ANIMATED EFFECTS - Express yourself
 Bring your conversations to life with fun AR effects, message effects and selfie stickers.
 
+### CHAT THEMES - Your chats, Your way
+Choose from fun themes and colors to make your chats more personal ❤️ 🏳️‍🌈
+
 #### REPLIES & FORWARDING - Let the conversation flow
 Choose the exact message you want to reply to or forward, right in your chat.
 
