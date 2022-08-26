@@ -21,9 +21,7 @@ function global:au_SearchReplace {
 function global:au_GetLatest {
     $uri = 'https://www.facebook.com/messenger/desktop/zeratul/update.xml?target=zeratul&platform=win'
     $userAgent = 'Update checker of Chocolatey Community Package ''messenger'''
-    $page = Invoke-WebRequest -Uri $uri -UserAgent $userAgent -UseBasicParsing
-    $xmlDocument = [xml] $page.Content
-    $releaseItem = $xmlDocument.rss.channel.item
+    $releaseItem = Invoke-RestMethod -Uri $uri -UserAgent $userAgent -UseBasicParsing
 
     $sparkleVersion = $releaseItem.enclosure.version
     $splitVersionString = $releaseItem.enclosure.shortVersionString.Split('.')
