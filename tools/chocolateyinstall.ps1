@@ -2,15 +2,17 @@
 
 Confirm-Win10 18362
 
-$packageArgs = @{
-  packageName    = $env:ChocolateyPackageName
-  fileType       = 'EXE'
+$packageName = $env:ChocolateyPackageName
+$fileName = 'Messenger.158.0.0.24.216.exe'
+
+$filePath = Join-Path -Path "$(Get-PackageCacheLocation)" -ChildPath $fileName
+
+$downloadArgs = @{
+  packageName    = $packageName
+  fileFullPath   = $filePath
   url64bit       = 'https://www.messenger.com/messenger/desktop/downloadV2/?platform=win'
-  softwareName   = 'Messenger'
   checksum64     = '38e38a26e24a84b5605943ab3e7d354111c71f51e71299b5c3a89cf0db06b2b7'
   checksumType64 = 'sha256'
-  silentArgs     = '/S'
-  validExitCodes = @(0)
   options        = @{
     Headers = @{
       'Sec-Fetch-Site' = 'none'
@@ -19,4 +21,14 @@ $packageArgs = @{
   }
 }
 
-Install-ChocolateyPackage @packageArgs
+Get-ChocolateyWebFile @downloadArgs
+
+$installArgs = @{
+  packageName    = $packageName
+  fileType       = 'EXE'
+  file64         = $filePath
+  silentArgs     = '/S'
+  validExitCodes = @(0)
+}
+
+Install-ChocolateyInstallPackage @installArgs

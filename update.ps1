@@ -13,6 +13,7 @@ function global:au_SearchReplace {
             '(\<copyright\>).*?(\<\/copyright\>)' = "`${1}© Meta $(Get-Date -Format yyyy)`$2"
         }
         'tools\chocolateyinstall.ps1' = @{
+            '(^[$]?\s*fileName\s*=\s*)(''.*'')' = "`$1'Messenger.$($Latest.ShortVersionString).exe'"
             '(^[$]?\s*checksum64\s*=\s*)(''.*'')' = "`$1'$($Latest.Checksum64)'"
         }
     }
@@ -24,13 +25,15 @@ function global:au_GetLatest {
     $releaseItem = Invoke-RestMethod -Uri $uri -UserAgent $userAgent -UseBasicParsing
 
     $sparkleVersion = $releaseItem.enclosure.version
-    $splitVersionString = $releaseItem.enclosure.shortVersionString.Split('.')
+    $shortVersionString = $releaseItem.enclosure.shortVersionString
+    $splitVersionString = $shortVersionString.Split('.')
     $productVersion = [Version] "$($splitVersionString[0]).$($splitVersionString[1]).$sparkleVersion"
 
     return @{
+        ShortVersionString = $shortVersionString
         Url64 = $releaseItem.enclosure.url
         Version = $productVersion
     }
 }
 
-Update-Package -ChecksumFor None -NoReadme
+Update-Package -ChecksumFor None -NoReadme -NoCheckChocoVersion
