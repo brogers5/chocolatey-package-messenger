@@ -1,7 +1,10 @@
 Import-Module AU
 
 function global:au_BeforeUpdate($Package) {
-    $Latest.Checksum64 = Get-RemoteChecksum -Url $Latest.Url64
+    #Archive this version for future development, since the vendor does not guarantee perpetual availability
+    $filePath = ".\Messenger.$($Latest.Version).exe"
+    Invoke-WebRequest -Uri $Latest.Url64 -OutFile $filePath
+    $Latest.Checksum64 = (Get-FileHash -Path $filePath -Algorithm SHA256).Hash.ToLower()
 
     Set-DescriptionFromReadme -Package $Package -ReadmePath '.\DESCRIPTION.md'
 }
