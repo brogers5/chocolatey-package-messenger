@@ -39,12 +39,6 @@ Choose from fun themes and colors to make your chats more personal ❤️ 🏳�
 
 Choose the exact message you want to reply to or forward, right in your chat.
 
-#### PAYMENTS - Send money to friends & family
-
-Send and receive money securely and easily by adding your debit card, PayPal account or reloadable prepaid card.
-
-Available in the US only. Single-source cards eligible for sending money only.
-
 #### BUSINESS - Connect with businesses
 
 Find deals, make reservations and get customer support by chatting with your favorite businesses right from Messenger.
