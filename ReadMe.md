@@ -1,14 +1,14 @@
-﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@11eade7e5c9cf02a523fc1a90c744a146ba806b7/messenger.png" width="48" height="48"/> Chocolatey Package: [Messenger](https://community.chocolatey.org/packages/messenger/)
+﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@11eade7e5c9cf02a523fc1a90c744a146ba806b7/messenger.png" width="48" height="48"/> Chocolatey Package: [Messenger](https://community.chocolatey.org/packages/messenger)
 
-[![Chocolatey package version](https://img.shields.io/chocolatey/v/messenger.svg)](https://community.chocolatey.org/packages/messenger/)
-[![Chocolatey package download count](https://img.shields.io/chocolatey/dt/messenger.svg)](https://community.chocolatey.org/packages/messenger/)
+[![Chocolatey package version](https://img.shields.io/chocolatey/v/messenger.svg)](https://community.chocolatey.org/packages/messenger)
+[![Chocolatey package download count](https://img.shields.io/chocolatey/dt/messenger.svg)](https://community.chocolatey.org/packages/messenger)
 
 ## Install
 
-[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved version on the Chocolatey Community Repository:
+[Install Chocolatey](https://chocolatey.org/install), and run the following command to install the latest approved version from the Chocolatey Community Repository:
 
 ```shell
-choco install messenger
+choco install messenger --source="'https://community.chocolatey.org/api/v2'"
 ```
 
 Alternatively, the packages as published on the Chocolatey Community Repository will also be mirrored on this repository's [Releases page](https://github.com/brogers5/chocolatey-package-messenger/releases). The `nupkg` can be installed from the current directory (with dependencies sourced from the Community Repository) as follows:
