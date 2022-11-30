@@ -3,7 +3,7 @@
 Confirm-Win10 18362
 
 $packageName = $env:ChocolateyPackageName
-$fileName = 'Messenger.169.0.0.17.103.exe'
+$fileName = 'Messenger.170.0.0.24.92.exe'
 
 $filePath = Join-Path -Path "$(Get-PackageCacheLocation)" -ChildPath $fileName
 
@@ -11,7 +11,7 @@ $downloadArgs = @{
   packageName    = $packageName
   fileFullPath   = $filePath
   url64bit       = 'https://www.messenger.com/messenger/desktop/downloadV2/?platform=win'
-  checksum64     = 'e507a61dc25700d29bbda17b875ecc78c1adce008d75de68a821ecc48d8786cb'
+  checksum64     = 'abb8d24d429e852018f2b9d1a0c23e57527cda1cd3bb38d384b034f30a06ce49'
   checksumType64 = 'sha256'
   options        = @{
     Headers = @{
