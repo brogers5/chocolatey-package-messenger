@@ -84,7 +84,6 @@ choco feature enable --name="'useRememberedArgumentsForUpgrades'"
     <dependencies>
       <dependency id="chocolatey-os-dependency.extension" version="0.0.1" />
       <dependency id="chocolatey-core.extension" version="1.0" />
-      <dependency id="vcredist140" version="14.0.23026.0" />
     </dependencies>
   </metadata>
   <files>
