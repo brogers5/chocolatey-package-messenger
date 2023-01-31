@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>messenger</id>
-    <version>175.0.440556528</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-messenger/tree/v175.0.440556528</packageSourceUrl>
+    <version>176.0.442527159</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-messenger/tree/v176.0.442527159</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Messenger</title>
     <authors>Facebook Inc.</authors>
