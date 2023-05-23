@@ -30,7 +30,7 @@ function global:au_GetLatest {
     $sparkleVersion = $releaseItem.enclosure.version
     $shortVersionString = $releaseItem.enclosure.shortVersionString
     $splitVersionString = $shortVersionString.Split('.')
-    $productVersion = [Version] "$($splitVersionString[0]).$($splitVersionString[1]).$sparkleVersion"
+    $productVersion = "$($splitVersionString[0]).$($splitVersionString[1]).$sparkleVersion"
 
     return @{
         ShortVersionString = $shortVersionString
