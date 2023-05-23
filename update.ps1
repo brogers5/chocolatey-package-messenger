@@ -12,7 +12,7 @@ function global:au_BeforeUpdate($Package) {
 function global:au_SearchReplace {
     @{
         "$($Latest.PackageName).nuspec" = @{
-            '<packageSourceUrl>[^<]*</packageSourceUrl>' = "<packageSourceUrl>https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)</packageSourceUrl>"
+            '(<packageSourceUrl>)[^<]*(</packageSourceUrl>)' = "`$1https://github.com/brogers5/chocolatey-package-$($Latest.PackageName)/tree/v$($Latest.Version)`$2"
             '(\<copyright\>).*?(\<\/copyright\>)'            = "`${1}© Meta $(Get-Date -Format yyyy)`$2"
         }
         'tools\chocolateyinstall.ps1'   = @{
