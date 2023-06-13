@@ -1,4 +1,8 @@
 Import-Module AU
+Import-Module Microsoft.PowerShell.SecretManagement
+
+$sparkleUri = 'https://www.facebook.com/messenger/desktop/zeratul/update.xml?target=zeratul&platform=win'
+$userAgent = 'Update checker of Chocolatey Community Package ''messenger'''
 
 function global:au_BeforeUpdate($Package) {
     #Archive this version for future development, since the vendor does not guarantee perpetual availability
@@ -22,20 +26,53 @@ function global:au_SearchReplace {
     }
 }
 
-function global:au_GetLatest {
-    $uri = 'https://www.facebook.com/messenger/desktop/zeratul/update.xml?target=zeratul&platform=win'
-    $userAgent = 'Update checker of Chocolatey Community Package ''messenger'''
-    $releaseItem = Invoke-RestMethod -Uri $uri -UserAgent $userAgent -UseBasicParsing
-
-    $sparkleVersion = $releaseItem.enclosure.version
+function Get-VersionInfo($ReleaseItem) {
+    $sparkleVersion = $ReleaseItem.enclosure.version
     $shortVersionString = $releaseItem.enclosure.shortVersionString
     $splitVersionString = $shortVersionString.Split('.')
     $productVersion = "$($splitVersionString[0]).$($splitVersionString[1]).$sparkleVersion"
 
     return @{
-        Url64              = "https://www.facebook.com/zeratul/desktop/update/$sparkleVersion.exe"
-        Version            = $productVersion
+        Url64   = "https://www.facebook.com/zeratul/desktop/update/$sparkleVersion.exe"
+        Version = $productVersion
     }
+}
+
+function Get-LatestBetaVersionInfo {
+    $webSession = New-Object -TypeName 'Microsoft.PowerShell.Commands.WebRequestSession'
+    $cookieUri = 'https://www.facebook.com/'
+
+    $facebookUserID = Get-Secret -Name 'Facebook User ID' -AsPlainText
+    $c_userCookie = New-Object -TypeName 'System.Net.Cookie' -ArgumentList ('c_user', $facebookUserID)
+    $c_userCookie.Secure = $true
+    $webSession.Cookies.Add($cookieUri, $c_userCookie)
+
+    $facebookSessionID = Get-Secret -Name 'Facebook Session ID' -AsPlainText
+    $xsCookie = New-Object -TypeName 'System.Net.Cookie' -ArgumentList ('xs', $facebookSessionID)
+    $xsCookie.Secure = $true
+    $xsCookie.HttpOnly = $true
+    $webSession.Cookies.Add($cookieUri, $xsCookie)
+
+    $releaseItem = Invoke-RestMethod -Uri $sparkleUri -UserAgent $userAgent -WebSession $webSession -UseBasicParsing
+
+    $versionInfo = Get-VersionInfo -ReleaseItem $releaseItem
+    $versionInfo.Version += '-beta'
+
+    return $versionInfo
+}
+
+function Get-LatestStableVersionInfo {
+    $releaseItem = Invoke-RestMethod -Uri $sparkleUri -UserAgent $userAgent -UseBasicParsing
+    return Get-VersionInfo -ReleaseItem $releaseItem
+}
+
+function global:au_GetLatest {
+    $streams = [Ordered] @{
+        Beta   = Get-LatestBetaVersionInfo
+        Stable = Get-LatestStableVersionInfo
+    }
+
+    return @{ Streams = $streams }
 }
 
 Update-Package -ChecksumFor None -NoReadme
