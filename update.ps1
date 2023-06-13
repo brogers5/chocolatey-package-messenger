@@ -16,7 +16,7 @@ function global:au_SearchReplace {
             '(\<copyright\>).*?(\<\/copyright\>)'            = "`${1}© Meta $(Get-Date -Format yyyy)`$2"
         }
         'tools\chocolateyinstall.ps1'   = @{
-            '(^[$]?\s*fileName\s*=\s*)(''.*'')'   = "`$1'Messenger.$($Latest.ShortVersionString).exe'"
+            '(^[$]?\s*url64bit\s*=\s*)(''.*'')'   = "`$1'$($Latest.Url64)'"
             '(^[$]?\s*checksum64\s*=\s*)(''.*'')' = "`$1'$($Latest.Checksum64)'"
         }
     }
@@ -33,8 +33,7 @@ function global:au_GetLatest {
     $productVersion = "$($splitVersionString[0]).$($splitVersionString[1]).$sparkleVersion"
 
     return @{
-        ShortVersionString = $shortVersionString
-        Url64              = $releaseItem.enclosure.url
+        Url64              = "https://www.facebook.com/zeratul/desktop/update/$sparkleVersion.exe"
         Version            = $productVersion
     }
 }
