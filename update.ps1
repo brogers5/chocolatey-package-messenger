@@ -5,7 +5,10 @@ $sparkleUri = 'https://www.facebook.com/messenger/desktop/zeratul/update.xml?tar
 $userAgent = 'Update checker of Chocolatey Community Package ''messenger'''
 
 function global:au_BeforeUpdate($Package) {
-    $Latest.Checksum64 = Get-RemoteChecksum -Url $Latest.Url64 -Algorithm 'SHA256'
+    #Archive this version for future development, since the vendor does not guarantee perpetual availability
+    $filePath = ".\Messenger.$($Latest.Version).exe"
+    Invoke-WebRequest -Uri $Latest.Url64 -OutFile $filePath
+    $Latest.Checksum64 = (Get-FileHash -Path $filePath -Algorithm SHA256).Hash.ToLower()
 
     Set-DescriptionFromReadme -Package $Package -ReadmePath '.\DESCRIPTION.md'
 }
