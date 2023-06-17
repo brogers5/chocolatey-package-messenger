@@ -1,6 +1,6 @@
 ﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@11eade7e5c9cf02a523fc1a90c744a146ba806b7/messenger.png" width="48" height="48"/> Chocolatey Package: [Messenger](https://community.chocolatey.org/packages/messenger)
 
-[![Total package download count shield](https://img.shields.io/chocolatey/v/messenger.svg?include_prereleases)](https://community.chocolatey.org/packages/messenger)
+[![Latest package version shield](https://img.shields.io/chocolatey/v/messenger.svg?include_prereleases)](https://community.chocolatey.org/packages/messenger)
 [![Total package download count shield](https://img.shields.io/chocolatey/dt/messenger.svg)](https://community.chocolatey.org/packages/messenger)
 
 ## Install
