@@ -1,3 +1,5 @@
+[CmdletBinding()]
+param($IncludeStream)
 Import-Module AU
 Import-Module Microsoft.PowerShell.SecretManagement
 
@@ -75,4 +77,4 @@ function global:au_GetLatest {
     return @{ Streams = $streams }
 }
 
-Update-Package -ChecksumFor None -NoReadme
+Update-Package -ChecksumFor None -IncludeStream $IncludeStream -NoReadme
