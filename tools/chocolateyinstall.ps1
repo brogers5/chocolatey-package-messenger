@@ -1,6 +1,6 @@
 ﻿$ErrorActionPreference = 'Stop'
 
-Confirm-Win10 18362
+Confirm-Win10 -ReqBuild 18362
 
 $installArgs = @{
   packageName    = $env:ChocolateyPackageName
