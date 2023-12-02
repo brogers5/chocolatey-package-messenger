@@ -74,7 +74,7 @@ Set-Secret -Name 'Facebook User ID' -Secret $c_userValue
 Set-Secret -Name 'Facebook Session ID' -Secret $xsValue
 ```
 
->**Note**
+>[!NOTE]
 >The session ID secret will require occasional updates to work around sessions expiring or otherwise being invalidated by Facebook (e.g. logging out, password changes, device removal, suspicious account activity, etc.).
 
 ### Execution and Testing
