@@ -77,6 +77,16 @@ Set-Secret -Name 'Facebook Session ID' -Secret $xsValue
 >[!NOTE]
 >The session ID secret will require occasional updates to work around sessions expiring or otherwise being invalidated by Facebook (e.g. logging out, password changes, device removal, suspicious account activity, etc.).
 
+### VirusTotal Setup
+
+While not strictly necessary to produce a working package, it's recommended to [install VirusTotal's CLI](https://community.chocolatey.org/packages/vt-cli) and [configure an API key](https://virustotal.github.io/vt-cli/#configuring-your-api-key). An API key can be [procured for free with a VirusTotal account](https://docs.virustotal.com/docs/please-give-me-an-api-key).
+
+This should enable automated submission of the installer binary to VirusTotal, which would improve the user experience for Chocolatey Pro+ users. They have access to Chocolatey's [Runtime Malware Protection feature](https://docs.chocolatey.org/en-us/features/virus-check), which by default is [enabled and configured for VirusTotal integration](https://docs.chocolatey.org/en-us/features/virus-check#virustotal).
+
+Normally, the Community Repository's Package Scanner service would upload the installer binary to VirusTotal, as a prerequisite to the moderation process's Scan Testing step. Unfortunately, the package is currently incompatible with it (due to a conflicting OS requirement), and will therefore fail to submit the installer binary.
+
+As new Messenger releases are unlikely to have been scanned prior to an updated package's publication, this would avoid burdening users with [a run-time prompt to optionally upload the installer binary to VirusTotal for scanning](https://docs.chocolatey.org/en-us/features/virus-check#what-if-virustotal-doesnt-have-results-for-a-binary).
+
 ### Execution and Testing
 
 Once everything is set up, simply run `update.ps1` from within the created directory/junction point. Assuming all goes well, all relevant files should change to reflect the latest version available for the last stream that was built. This will also build a new package version using the modified files.

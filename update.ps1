@@ -9,6 +9,14 @@ $userAgent = 'Update checker of Chocolatey Community Package ''messenger'''
 function global:au_BeforeUpdate($Package) {
     #Archive this version for future development, since the vendor does not guarantee perpetual availability
     $filePath = ".\Messenger.$($Latest.Version).exe"
+
+    if ((Get-Command -Name 'vt' -CommandType Application -ErrorAction SilentlyContinue)) {
+        vt.exe scan url "$($Latest.Url64)" --silent
+    }
+    else {
+        Write-Warning 'VirusTotal CLI is not available - skipping VirusTotal submission'
+    }
+
     Invoke-WebRequest -Uri $Latest.Url64 -OutFile $filePath
     $Latest.Checksum64 = (Get-FileHash -Path $filePath -Algorithm SHA256).Hash.ToLower()
 
