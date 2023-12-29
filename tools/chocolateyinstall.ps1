@@ -6,8 +6,8 @@ $installArgs = @{
   packageName    = $env:ChocolateyPackageName
   fileType       = 'EXE'
   silentArgs     = '/S'
-  url64bit       = 'https://www.facebook.com/zeratul/desktop/update/548271278.exe'
-  checksum64     = '0d73d96e6f72489e9f051c2e19c77f21aebc52185255a85c4d6893e4f5f1829d'
+  url64bit       = 'https://www.facebook.com/zeratul/desktop/update/551140248.exe'
+  checksum64     = '8dbf8b2d3926406f80ff9179e12a353c58e93304d017a835076c3aef27d2e9b8'
   checksumType64 = 'sha256'
   validExitCodes = @(0)
 }
