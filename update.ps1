@@ -10,15 +10,15 @@ function global:au_BeforeUpdate($Package) {
     #Archive this version for future development, since the vendor does not guarantee perpetual availability
     $filePath = ".\Messenger.$($Latest.Version).exe"
 
+    Invoke-WebRequest -Uri $Latest.Url64 -OutFile $filePath
+    $Latest.Checksum64 = (Get-FileHash -Path $filePath -Algorithm SHA256).Hash.ToLower()
+
     if ((Get-Command -Name 'vt' -CommandType Application -ErrorAction SilentlyContinue)) {
-        vt.exe scan url "$($Latest.Url64)" --silent
+        vt.exe scan file "$filePath" --silent
     }
     else {
         Write-Warning 'VirusTotal CLI is not available - skipping VirusTotal submission'
     }
-
-    Invoke-WebRequest -Uri $Latest.Url64 -OutFile $filePath
-    $Latest.Checksum64 = (Get-FileHash -Path $filePath -Algorithm SHA256).Hash.ToLower()
 
     Set-DescriptionFromReadme -Package $Package -ReadmePath '.\DESCRIPTION.md'
 }
