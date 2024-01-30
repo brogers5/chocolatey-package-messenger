@@ -1,12 +1,3 @@
-
----
-
-### [choco://messenger](choco://messenger)
-
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
-
----
-
 ## Go big with Messenger
 
 A simple app that lets you text, video chat, and stay close with people you care about.
