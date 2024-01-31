@@ -3,8 +3,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <id>messenger</id>
-    <version>204.0.559748691-beta</version>
-    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-messenger/tree/v204.0.559748691-beta</packageSourceUrl>
+    <version>204.0.561709633</version>
+    <packageSourceUrl>https://github.com/brogers5/chocolatey-package-messenger/tree/v204.0.561709633</packageSourceUrl>
     <owners>sublym0nal</owners>
     <title>Messenger</title>
     <authors>Facebook Inc.</authors>
@@ -16,16 +16,7 @@
     <docsUrl>https://www.facebook.com/help/messenger-app</docsUrl>
     <tags>messenger instant instant-messenger im chat facebook instagram portal oculus 64-bit freeware cross-platform</tags>
     <summary>A simple app that lets you text, video chat, and stay close with people you care about.</summary>
-    <description><![CDATA[
----
-
-### [choco://messenger](choco://messenger)
-
-To use choco:// protocol URLs, install [(unofficial) choco:// Protocol support](https://community.chocolatey.org/packages/choco-protocol-support)
-
----
-
-## Go big with Messenger
+    <description><![CDATA[## Go big with Messenger
 
 A simple app that lets you text, video chat, and stay close with people you care about.
 
