@@ -82,6 +82,12 @@ function global:au_GetLatest {
         Stable = Get-LatestStableVersionInfo
     }
 
+    if ($streams.Beta.Version -eq "$($streams.Stable.Version)-beta") {
+        Write-Warning 'The queried Beta version is identical to the Stable version!'
+        Write-Warning 'Your account may not have joined Messenger''s beta testing, or the secrets improperly configured.'
+        Write-Warning 'The session ID secret may have also expired and requires a refresh.'
+    }
+
     return @{ Streams = $streams }
 }
 
