@@ -1,4 +1,18 @@
-﻿# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@11eade7e5c9cf02a523fc1a90c744a146ba806b7/messenger.png" width="48" height="48"/> Chocolatey Package: [Messenger](https://community.chocolatey.org/packages/messenger)
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
+# ⛔️ DEPRECATED
+
+Development for this Chocolatey package has been discontinued.
+
+Facebook has unfortunately opted to phase out the native Windows application consumed by this package in favor of [an Edge-powered progressive web app (PWA) that is distributed via the Microsoft Store](https://www.microsoft.com/p/messenger/9wzdncrf0083). Unfortunately, Chocolatey CLI currently lacks support for managing Microsoft Store applications, so I am unable to migrate the package to this version. Given that there are no near-term plans to implement this, I do not have a path forward for maintaining this package any longer.
+
+While older versions of Messenger may still be downloaded, Facebook has also implemented a kill switch that either blocks use of an older version (upon launching or after logging in), or prevents users from logging in successfully. Since this effectively makes the application itself useless, I have unlisted all previously published versions from the Community Repository.
+
+This repository will remain online only for archival purposes. Note that I do not have redistribution rights for Messenger, so any copies of the package published here are functionally dependent on Facebook continuing to host older installers for Messenger on their servers. Therefore, I cannot guarantee they will continue to work indefinitely.
+
+---
+ 
+# <img src="https://cdn.jsdelivr.net/gh/brogers5/chocolatey-package-messenger@11eade7e5c9cf02a523fc1a90c744a146ba806b7/messenger.png" width="48" height="48"/> Chocolatey Package: [Messenger](https://community.chocolatey.org/packages/messenger)
 
 [![Latest package version shield](https://img.shields.io/chocolatey/v/messenger.svg?include_prereleases)](https://community.chocolatey.org/packages/messenger)
 [![Total package download count shield](https://img.shields.io/chocolatey/dt/messenger.svg)](https://community.chocolatey.org/packages/messenger)
